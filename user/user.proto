@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package crud_grpc2;
+option go_package = "test/crud_grpc2/user";
+
+service UserService {
+    rpc CreateUser(UserRequest) returns (UserResponse);
+    rpc GetUser(UserRequest) returns (UserResponse);
+    rpc UpdateUser(UserRequest) returns (UserResponse);
+    rpc DeleteUser(UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message UserResponse {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+}
